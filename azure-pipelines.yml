@@ -1,0 +1,20 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+ - group: SONAR
+ - name: APP_NAME
+   value: user
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: ci-build-templates
+
+steps:
+
+  - template: nodejs.yml@templates
